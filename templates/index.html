@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI-powered gender and age prediction from images using deep learning">
+    <title>Gender & Age Prediction - AI Face Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background gradient -->
+    <div class="background-gradient"></div>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-icon">🎭</div>
+                <h1 class="app-title">Gender & Age <span class="gradient-text">Predictor</span></h1>
+            </div>
+            <p class="app-subtitle">AI-Powered Face Analysis Using Deep Learning</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section">
+                <div class="upload-card glass-effect" id="uploadCard">
+                    <div class="upload-area" id="uploadArea">
+                        <div class="upload-icon">📸</div>
+                        <h2 class="upload-title">Upload Your Image</h2>
+                        <p class="upload-description">Drag & drop an image here or click to browse</p>
+                        <p class="upload-hint">Supports: JPG, PNG, GIF, WebP • Max 10MB</p>
+                        <input type="file" id="fileInput" accept="image/*" hidden>
+                        <button class="upload-button" id="uploadButton">
+                            <span class="button-icon">📁</span>
+                            Choose Image
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Preview Section -->
+            <section class="preview-section" id="previewSection" style="display: none;">
+                <div class="preview-card glass-effect">
+                    <div class="preview-header">
+                        <h3 class="preview-title">Image Preview</h3>
+                        <button class="close-button" id="closePreview">✕</button>
+                    </div>
+                    <div class="preview-image-container">
+                        <img id="previewImage" alt="Preview">
+                        <canvas id="resultCanvas"></canvas>
+                    </div>
+                    <button class="analyze-button" id="analyzeButton">
+                        <span class="button-icon">🔍</span>
+                        Analyze Image
+                    </button>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h2 class="results-title">Analysis Results</h2>
+                    <div class="face-count-badge" id="faceCountBadge"></div>
+                </div>
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Results will be dynamically inserted here -->
+                </div>
+            </section>
+
+            <!-- Loading Overlay -->
+            <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p class="loading-text">Analyzing faces...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <div class="error-icon">⚠️</div>
+                <p class="error-text" id="errorText"></p>
+                <button class="error-close" id="closeError">Dismiss</button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p class="footer-text">Powered by OpenCV DNN & Deep Learning Models</p>
+            <p class="footer-subtext">Built with ❤️ using Flask & Modern Web Technologies</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
